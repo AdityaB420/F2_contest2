@@ -11,8 +11,6 @@ const professionSelect = document.getElementById('profession');
 const nameInput = document.getElementById('name');
 const ageInput = document.getElementById('age');
 const professionInput = document.getElementById('profession-input');
-
-// function to render user cards
 function renderUsers(usersArray) {
   usersCon.innerHTML = '';
   usersArray.forEach(user => {
@@ -26,13 +24,9 @@ function renderUsers(usersArray) {
       usersCon.appendChild(card);
   });
 }
-
-// function to filter users by profession
 function filterUsersByProfession(profession) {
   return users.filter(user => user.profession === profession);
 }
-
-// function to handle filter button click
 function handleFilterClick() {
   const selectedProfession = professionSelect.value;
   if (selectedProfession === '') {
@@ -42,8 +36,6 @@ function handleFilterClick() {
   const filteredUsers = filterUsersByProfession(selectedProfession);
   renderUsers(filteredUsers);
 }
-
-// function to handle add user button click
 function handleAddClick() {
   const name = nameInput.value.trim();
   const age = ageInput.value.trim();
@@ -64,10 +56,6 @@ function handleAddClick() {
   ageInput.value = '';
   professionInput.value = '';
 }
-
-// add event listeners
 filterBtn.addEventListener('click', handleFilterClick);
 addBtn.addEventListener('click', handleAddClick);
-
-// render initial users
 renderUsers(users);
